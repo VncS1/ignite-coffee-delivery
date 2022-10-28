@@ -72,6 +72,7 @@ export const InfosContainer = styled.div`
 
         .locale {
             margin-left: .5rem;
+            font-size: .875rem;
             color: ${props => props.theme['purple']};
         }
     }
