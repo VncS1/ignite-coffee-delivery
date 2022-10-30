@@ -10,12 +10,12 @@ export function Header() {
 
             <InfosContainer>
                 <div className="localeContainer">
-                    <MapIcon size={24}/>
+                    <MapIcon size={24} weight="fill" />
                     <span className="locale">Poços de Caldas, MG</span>
                 </div>
 
                 <button className="buttonCart">
-                    <CartIcon size={24} />
+                    <CartIcon size={24} weight="fill" />
                 </button>
             </InfosContainer>
         </HeaderContainer>

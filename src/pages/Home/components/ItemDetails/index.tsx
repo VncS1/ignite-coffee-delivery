@@ -1,15 +1,20 @@
+import { IconProps } from "phosphor-react";
+import { createElement, ReactElement, ReactNode } from "react";
 import { ItemContainer } from "./style";
 
 interface ItemProps {
-    itemImage: string;
-    itemText: string
+    icon: React.ForwardRefExoticComponent<IconProps & React.RefAttributes<SVGSVGElement>>;
+    text: string,
+    bgColor?: string
 }
 
-export function ItemDetail({itemImage, itemText}: ItemProps){
+export function ItemDetail({icon, text, bgColor}: ItemProps){
     return (
-        <ItemContainer>
-            <img src={itemImage} />
-            <span>{itemText}</span>
+        <ItemContainer color={bgColor}>
+            <div>
+                {createElement(icon, {size: 16, weight: "fill", color: '#fff'})}
+            </div>
+            <span>{text}</span>
         </ItemContainer>
     )
 }

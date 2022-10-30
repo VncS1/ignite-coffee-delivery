@@ -9,9 +9,11 @@ export const HeaderContainer = styled.header`
 
     flex-wrap: wrap;
 
-    padding: 2rem 8rem;
+    padding: 2rem 0;
 
     width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
 
     @media(max-width: 650px){
         justify-content: center;
@@ -37,17 +39,6 @@ export const InfosContainer = styled.div`
 
     min-width: 30%;
 
-    @media(max-width: 650px){
-        min-width: 60%;
-        margin-left: 1rem;
-        align-items: center;
-
-        
-    }
-    
-    @media(max-width: 400px){
-        margin-top: 1rem;
-    }
 
     .buttonCart {
         background: ${props => props.theme['yellow-light']};
@@ -75,5 +66,15 @@ export const InfosContainer = styled.div`
             font-size: .875rem;
             color: ${props => props.theme['purple']};
         }
+    }
+
+    @media(max-width: 650px){
+        min-width: 60%;
+        margin-left: 1rem;
+        align-items: center;
+    }
+    
+    @media(max-width: 400px){
+        margin-top: 1rem;
     }
 `
