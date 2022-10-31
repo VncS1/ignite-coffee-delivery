@@ -7,19 +7,17 @@ export const HeaderContainer = styled.header`
     justify-content: space-between;
     align-items: center;
 
-    flex-wrap: wrap;
-
     padding: 2rem 0;
 
     width: 100%;
     max-width: 1120px;
     margin: 0 auto;
 
-    @media(max-width: 650px){
-        justify-content: center;
-        align-items: center;
+    background: blue;
 
-        padding: 1.5rem 1rem;
+    @media(max-width: 768px){
+        width: 100%;
+        max-width: 600px;
     }
     
 `
@@ -36,8 +34,6 @@ export const InfosContainer = styled.div`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-
-    min-width: 30%;
 
 
     .buttonCart {

@@ -19,5 +19,13 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Roboto', sans-serif;
         font-weight: 400;
         font-size: 1rem;
+    }
+
+    @media (max-width: 768px){
+    html {
+        font-size: 87.5%; /* Ou seja, 14 px 
+                            fica: 16px - 100%
+                                  14px - x    -> Resultado: 87.5% */
+    }
 }
 `

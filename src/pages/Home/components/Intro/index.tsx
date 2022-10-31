@@ -30,16 +30,17 @@ export function Intro() {
                             bgColor={theme["yellow-dark"]}
                         />
                         <ItemDetail
+                            icon={Package}
+                            text="Embalagem mantém o café intacto"
+                            bgColor={theme["base-title"]}
+                        />
+                        <ItemDetail
                             icon={Timer}
                             text="Entrega rápida e rastreada"
                             bgColor={theme["yellow"]}
 
                         />
-                        <ItemDetail
-                            icon={Package}
-                            text="Embalagem mantém o café intacto"
-                            bgColor={theme["base-title"]}
-                        />
+
                         <ItemDetail
                             icon={Coffee}
                             text="O café chega fresquinho até você"
