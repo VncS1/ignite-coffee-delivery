@@ -13,11 +13,13 @@ export const HeaderContainer = styled.header`
     max-width: 1120px;
     margin: 0 auto;
 
-    background: blue;
-
-    @media(max-width: 768px){
+    @media(max-width: 1200px){
         width: 100%;
         max-width: 600px;
+    }
+
+    @media(max-width: 768px){
+        max-width: 80%;
     }
     
 `
@@ -64,11 +66,7 @@ export const InfosContainer = styled.div`
         }
     }
 
-    @media(max-width: 650px){
-        min-width: 60%;
-        margin-left: 1rem;
-        align-items: center;
-    }
+    
     
     @media(max-width: 400px){
         margin-top: 1rem;

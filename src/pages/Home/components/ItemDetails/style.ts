@@ -11,7 +11,7 @@ export const ItemContainer = styled.div `
         background: ${props => props.color}; //Pegando a cor pelas propriedades do componente
         border-radius: 999px;
 
-        width: 32px;
+        min-width: 32px;
         height: 32px;
 
         display: flex;

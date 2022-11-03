@@ -7,6 +7,8 @@ export const Container = styled.div`
     background: url(${backgroundImage}) center center no-repeat;
     background-size: cover;
 
+
+
     @media(max-width: 500px){
         background-size: 100% 100%;
     }
@@ -24,7 +26,7 @@ export const Content = styled.div`
     gap: 3.5rem;
 
 
-    @media(max-width: 768px){
+    @media(max-width: 1200px){
         width: 100%;
         max-width: 600px;
         flex-wrap: wrap;
@@ -33,13 +35,18 @@ export const Content = styled.div`
         align-items: center;
     }
 
-    @media(max-width: 500px){
-        max-width: 400px;
+    @media(max-width: 768px){
+        max-width: 80%;
     }
+
 
     .left-items {
         display: flex;
         flex-direction: column;
+    }
+
+    .homeImage {
+        width: 100%;
     }
 `
 
@@ -67,5 +74,9 @@ export const ItemsContainer = styled.div`
 
     margin-top: 3rem;
 
+    @media(max-width: 500px){
+        grid-template-columns: 1fr;
+        align-content: center;
+    }
 
 `

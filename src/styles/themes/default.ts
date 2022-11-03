@@ -8,8 +8,9 @@ export const defaultTheme = {
     yellow: '#DBAC2C',
     'yellow-light': '#F1E9C9',
     'yellow-dark': '#C47F17',
-
+    
     'background': '#FAFAFA',
+    'base-color': '#F3F2F2',
     'base-title': '#272221',
     'base-text': '#574F4D'
 
