@@ -12,6 +12,7 @@ export const defaultTheme = {
     'background': '#FAFAFA',
     'base-color': '#F3F2F2',
     'base-title': '#272221',
-    'base-text': '#574F4D'
+    'base-text': '#574F4D',
+    'description-text': '#8D8686',
 
 }

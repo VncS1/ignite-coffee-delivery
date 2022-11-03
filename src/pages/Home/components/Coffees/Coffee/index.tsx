@@ -4,6 +4,7 @@ import coffeeImg from '../../../../../assets/coffee-images/americano.png';
 
 export function Coffee() {
     return (
+        // Ordenar com display grid: 1fr 1fr 1fr 1fr 1fr (5 colunas)
         <CoffeeContainer>
             <img src={coffeeImg} />
             <CoffeeInfos>
