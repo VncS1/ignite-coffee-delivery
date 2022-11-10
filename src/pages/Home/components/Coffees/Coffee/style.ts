@@ -68,6 +68,45 @@ export const CoffeeInfos = styled.div`
         margin-bottom: 1rem;
     }
 
+    .coffee-price {
+        display: flex;
+
+        max-width: 90%;
+        align-items: center;
+
+
+        .price {
+            font-size: 1.25rem;
+            font-weight: bold;
+            font-family: 'Roboto', sans-serif;
+
+            display: flex;
+            align-items: center;
+
+            .cifra {
+                font-size: 0.875rem;
+                font-weight: 400;
+                
+            }
+        }
+
+        .quantity {
+            border: 0;
+            background: #333;
+            max-width: 50px;
+            text-align: center;
+            background: ${props => props.theme["background"]};
+        }
+
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+    }
 `
 
 export const CartIcon = styled(ShoppingCart)`
