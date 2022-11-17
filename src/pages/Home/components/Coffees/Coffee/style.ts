@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ShoppingCart } from "phosphor-react";
+import { ShoppingCart, Plus, Minus } from "phosphor-react";
 
 
 
