@@ -1,13 +1,25 @@
 import { Coffee } from "./Coffee";
-import { CoffeesContainer } from "./style";
+import { CoffeesContainer, Title } from "./style";
 
-export function Coffees(){
+export function Coffees() {
     return (
-        
+
         // Ordenar com display grid: 1fr 1fr 1fr 1fr 1fr (5 colunas)
-        <CoffeesContainer>
-            <h1>Nossos Cafés</h1>
-            <Coffee />
-        </CoffeesContainer>
+        <div>
+            <Title>Nossos Cafés</Title>
+            <CoffeesContainer>
+                
+                <Coffee />
+                <Coffee />
+                <Coffee />
+                <Coffee />
+
+                <Coffee />
+                <Coffee />
+                <Coffee />
+                <Coffee />
+
+            </CoffeesContainer>
+        </div>
     )
 }
