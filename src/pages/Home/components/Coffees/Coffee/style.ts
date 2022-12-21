@@ -4,7 +4,7 @@ import { ShoppingCart, Plus, Minus } from "phosphor-react";
 
 
 export const CoffeeContainer = styled.div`
-    width: 256px;
+    min-width: 256px;
     display: flex;
     flex-direction: column;
     align-items: center;

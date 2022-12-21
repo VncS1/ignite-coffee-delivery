@@ -58,6 +58,7 @@ export const TitleContainer = styled.div`
         font-size: 3rem;
 
         margin-bottom: 1rem;
+        overflow-y: hidden;
     }
 
     span {

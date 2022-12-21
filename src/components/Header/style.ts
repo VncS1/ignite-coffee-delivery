@@ -21,6 +21,12 @@ export const HeaderContainer = styled.header`
     @media(max-width: 768px){
         max-width: 80%;
     }
+
+    @media(max-width: 425px){
+        flex-direction: column;
+    }
+    
+    overflow-x: hidden;
     
 `
 export const MapIcon = styled(MapPin)`
@@ -36,6 +42,7 @@ export const InfosContainer = styled.div`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+
 
 
     .buttonCart {
