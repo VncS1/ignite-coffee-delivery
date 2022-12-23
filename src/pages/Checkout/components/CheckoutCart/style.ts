@@ -76,7 +76,9 @@ export const CartItem = styled.div`
     }
 
     .line {
-        margin: 1.5rem 0;     
+        margin: 1.5rem 0;  
+        color: ${props => props.theme["base-button"]};   
+        opacity: 0.3;
     }
 `
 
