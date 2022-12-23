@@ -37,18 +37,21 @@ export const FormContainer = styled.div`
 
         .input-container {
             width: 100%;
-            display: grid;
+            /* display: grid;
+            
             grid-template-areas: 
-                "cep cep . . .
-                 rua rua rua rua rua
-                 numero numero complemento complemento complemento
-                 bairro bairro cidade cidade uf
+                "uf uf uf
+                cep rua rua
                 "
             ;
+
+            overflow-x: hidden; */
 
             input {
                 border: 0;
                 border-radius: 8px;
+
+                max-width: 100%;
 
                 background-color: ${props => props.theme["base-input"]};
                 padding: 0.75rem;
@@ -56,7 +59,7 @@ export const FormContainer = styled.div`
                 font-size: 0.875rem;
             }
 
-            input.cep{
+            /* input.cep{
                 grid-area: cep;
             }
 
@@ -82,7 +85,8 @@ export const FormContainer = styled.div`
 
             input.uf{
                 grid-area: uf;
-            }
+            } */
+
         }
     }
 `

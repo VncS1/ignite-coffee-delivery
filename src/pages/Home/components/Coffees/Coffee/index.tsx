@@ -1,6 +1,7 @@
-import { CartIcon, CoffeeContainer, CoffeeInfos, MinusIcon, PlusIcon } from "./style";
+import { CartIcon, CoffeeContainer, CoffeeInfos} from "./style";
 
 import coffeeImg from '../../../../../assets/coffee-images/americano.png';
+import { QuantityForm } from "../../../../../components/QuantityForm";
 
 export function Coffee() {
     return (
@@ -23,15 +24,7 @@ export function Coffee() {
                 <div className="coffee-price">
                     <span className="price"><span className="cifra">R$</span> 9,90</span>
                     <div className="price-forms">
-                        <div className="quantity-form">
-                            <button type="button" className="button-quantity">
-                                <MinusIcon size={20} weight="fill" />
-                            </button>
-                            <input type="number" className="quantity" min="1" defaultValue="0" />
-                            <button type="button" className="button-quantity">
-                                <PlusIcon size={20} weight="fill" />
-                            </button>
-                        </div>
+                        <QuantityForm />
                         <button onClick={() => console.log('teste')} type="button" className="add-to-cart">
                             <CartIcon size={24} weight="fill" />
                         </button>

@@ -106,40 +106,7 @@ export const CoffeeInfos = styled.div`
         .price-forms {
             display: flex;
 
-            .quantity-form {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                
-
-                .button-quantity {
-                    display: flex;
-                    border: 0;
-                    cursor: pointer;
-                }
-
-                .quantity {
-                    border: 0;
-                    height: 38px;
-                    text-align: center;
-                    max-width: 25px;
-                    background: ${props => props.theme["base-button"]};  
-                    font-size: 1rem ;
-                    font-family: 'Roboto', sans-serif;
-                    
-
-                }
-
-                input[type="number"]::-webkit-outer-spin-button,
-                input[type="number"]::-webkit-inner-spin-button {
-                    -webkit-appearance: none;
-                    margin: 0;
-                }
-                input[type="number"] {
-                    -moz-appearance: textfield;
-                    
-                }
-            }
+            
 
             .add-to-cart {
                 background: ${props => props.theme["purple-dark"]};
@@ -162,25 +129,4 @@ export const CoffeeInfos = styled.div`
 
 export const CartIcon = styled(ShoppingCart)`
     color: ${props => props.theme['background']};
-`
-export const PlusIcon = styled(Plus)`
-    color: ${props => props.theme['purple-dark']};
-    background: ${props => props.theme["base-button"]};
-    height: 38px;
-    padding-right: 0.25rem;
-
-    border-bottom-right-radius: 8px;
-    border-top-right-radius: 8px;
-    margin-right: 8px;
-
-`
-
-export const MinusIcon = styled(Minus)`
-    color: ${props => props.theme['purple-dark']};
-    background: ${props => props.theme["base-button"]};    
-    height: 38px;
-    padding-left: 0.25rem;
-    border-bottom-left-radius: 8px;
-    border-top-left-radius: 8px;
-
 `
