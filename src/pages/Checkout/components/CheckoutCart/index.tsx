@@ -1,51 +1,31 @@
-import { CartContainer, CartItem, TrashIcon } from "./style";
+import { CartItem } from "./components/CartItem";
+import { CartContainer, FinalPrice, CheckoutButton } from "./style";
 
-import americano from '../../../../assets/coffee-images/americano.png';
-import { QuantityForm } from "../../../../components/QuantityForm";
 
 export function CheckoutCart() {
     return (
         <CartContainer>
             <div className="products">
-                <CartItem>
-                    <div className="item">
-
-                        <div className="product-info">
-                            <img src={americano} />
-                            <div className="product-details">
-                                <span className="product-name">Americano</span>
-                                <div className="edit-product">
-                                    <QuantityForm />
-                                    <button type="button" className="remove-button"><TrashIcon size={16} />REMOVER</button>
-                                </div>
-                            </div>
-
-                        </div>
-                        <span className="product-price">R$ 5,00</span>
-                    </div>
-
-                    <hr className="line" />
-                </CartItem>
-                <CartItem>
-                    <div className="item">
-
-                        <div className="product-info">
-                            <img src={americano} />
-                            <div className="product-details">
-                                <span className="product-name">Americano</span>
-                                <div className="edit-product">
-                                    <QuantityForm />
-                                    <button type="button" className="remove-button"><TrashIcon size={16} />REMOVER</button>
-                                </div>
-                            </div>
-
-                        </div>
-                        <span className="product-price">R$ 5,00</span>
-                    </div>
-
-                    <hr className="line" />
-                </CartItem>
+                <CartItem />
+                <CartItem />
             </div>
+            <FinalPrice>
+                <div className="total-items">
+                    <span className="total-items-text">Total de itens</span>
+                    <span className="price">R$ 10,00</span>
+                </div>
+                <div className="shipping">
+                    <span className="shipping-text">Entrega</span>
+                    <span className="shipping-value">R$ 3,50</span>
+                </div>
+                <div className="final-price">
+                    <span className="final-price-text">Total</span>
+                    <span className="final-price-value">R$ 13,50</span>
+                </div>
+            </FinalPrice>
+            <CheckoutButton type="button">
+                Confirmar Pedido
+            </CheckoutButton>
         </CartContainer>
     );
 }

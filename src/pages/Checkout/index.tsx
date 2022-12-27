@@ -7,9 +7,15 @@ import { CheckoutContainer } from "./style";
 export function Checkout() {
   return (
     <CheckoutContainer>
-        <Header />
+      <div className="checkout-form">
+        <span className="checkout-title">Complete seu pedido</span>
         <CheckoutForm />
+      </div>
+      <div className="checkout-cart">
+        <span className="checkout-title" >Cafés selecionados</span>
+
         <CheckoutCart />
+      </div>
     </CheckoutContainer>
   )
 }

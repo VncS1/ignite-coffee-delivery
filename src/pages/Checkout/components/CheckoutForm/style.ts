@@ -6,16 +6,18 @@ export const MainContainer = styled.main`
     width: 100%;
 `
 
-export const FormContainer = styled.div`
+export const FormContainer = styled.form`
     width: 100%;
     background: ${props => props.theme["base-color"]};
     border-radius: 8px;	
     padding: 2.5rem;
-    max-width: 640px;
+    
     margin-bottom: 0.75rem;
 
-    form {
-        width: 100%;
+    
+
+    
+    
         .title-text {
             display: flex;
             align-items: flex-start;
@@ -37,58 +39,67 @@ export const FormContainer = styled.div`
 
         .input-container {
             width: 100%;
-            /* display: grid;
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(4, 1fr);
             
             grid-template-areas: 
-                "uf uf uf
-                cep rua rua
-                "
+                "cep . ."
+                "rua rua rua"
+                "numero complemento complemento"
+                "bairro cidade uf"
             ;
 
-            overflow-x: hidden; */
+            grid-gap: 1rem 0.75rem;
 
             input {
+                width: 100%;
+
                 border: 0;
                 border-radius: 8px;
-
-                max-width: 100%;
-
                 background-color: ${props => props.theme["base-input"]};
                 padding: 0.75rem;
 
                 font-size: 0.875rem;
             }
 
-            /* input.cep{
+            .cep{
                 grid-area: cep;
             }
 
-            input.rua{
+            .rua{
                 grid-area: rua;
             }
 
-            input.num{
+            .num{
                 grid-area: numero;
             }
 
-            input.complemento{
+            .complemento{
                 grid-area: complemento;
             }
 
-            input.bairro{
+            .bairro{
                 grid-area: bairro;
             }
 
-            input.cidade{
+            .cidade{
                 grid-area: cidade;
             }
 
-            input.uf{
+            .uf{
                 grid-area: uf;
-            } */
+            }
 
         }
-    }
+
+        /* @media (max-width: 425px) {
+            padding: 2rem .5rem;
+            max-width: 95%;
+            margin: 1rem auto;
+        }
+     */
 `
 
 export const PaymentMethods = styled.div`
@@ -123,6 +134,12 @@ export const PaymentMethods = styled.div`
         flex-wrap: wrap;
         gap: 0.75rem;
     }
+
+    /* @media (max-width: 425px) {
+        padding: 2rem .5rem;
+        width: 95%;
+        margin: 0 auto;
+    } */
 `
 
 export const PaymentMethod = styled.div`

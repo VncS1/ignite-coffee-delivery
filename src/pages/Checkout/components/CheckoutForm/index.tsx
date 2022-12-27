@@ -4,26 +4,25 @@ export function CheckoutForm() {
     return (
         <MainContainer>
 
-            <FormContainer>
-                <form action="#">
-                    <div className="title-text">
-                        <MapPinIcon size={24} />
-                        <div className="texts">
-                            <span className="title">Endereço de Entrega</span>
-                            <span className="subtitle">Informe o endereço onde deseja receber seu pedido.</span>
-                        </div>
+            <FormContainer action="#">
+                <div className="title-text">
+                    <MapPinIcon size={24} />
+                    <div className="texts">
+                        <span className="title">Endereço de Entrega</span>
+                        <span className="subtitle">Informe o endereço onde deseja receber seu pedido.</span>
                     </div>
+                </div>
 
-                    <div className="input-container">
-                        <input type="text" placeholder="CEP" className="cep" />
-                        <input type="text" placeholder="Rua" className="rua"/>
-                        <input type="text" placeholder="Número" className="num"/>
-                        <input type="text" placeholder="Complemento*" className="complemento" />
-                        <input type="text" placeholder="Bairro" className="bairro" />
-                        <input type="text" placeholder="Cidade" className="cidade" />
-                        <input type="text" placeholder="UF" className="uf" />
-                    </div>
-                </form>
+                <div className="input-container">
+                    <input type="text" placeholder="CEP" className="cep" />
+                    <input type="text" placeholder="Rua" className="rua" />
+                    <input type="text" placeholder="Número" className="num" />
+                    <input type="text" placeholder="Complemento*" className="complemento" />
+                    <input type="text" placeholder="Bairro" className="bairro" />
+                    <input type="text" placeholder="Cidade" className="cidade" />
+                    <input type="text" placeholder="UF" className="uf" />
+                </div>
+
             </FormContainer>
 
             <PaymentMethods>
