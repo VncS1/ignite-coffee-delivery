@@ -1,18 +1,33 @@
 import { CartIcon, CoffeeContainer, CoffeeInfos } from "./style";
 
 import { QuantityForm } from "../../../../../components/QuantityForm";
+import { useContext, useState } from "react";
+import { CoffeesContext } from "../../../../../contexts/CoffeesContext";
 
 interface CoffeeProps {
     image: string
     type: string[]
     name: string;
     description: string;
-
 }
 
 export function Coffee({ image, type, name, description }: CoffeeProps) {
+
+    const { setCoffees, coffees } = useContext(CoffeesContext)
+
+    const [quantity, setQuantity] = useState(0);
+
+    function handleAddToCart(){
+        setCoffees([...coffees, {
+            image,
+            type,
+            name,
+            description,
+            quantity
+        }])
+    }
+
     return (
-        // Ordenar com display grid: 1fr 1fr 1fr 1fr 1fr (5 colunas)
         <CoffeeContainer>
             <img src={image} />
             <CoffeeInfos>
@@ -35,8 +50,11 @@ export function Coffee({ image, type, name, description }: CoffeeProps) {
                 <div className="coffee-price">
                     <span className="price"><span className="cifra">R$</span> 9,90</span>
                     <form className="price-forms" action="#">
-                        <QuantityForm />
-                        <button onClick={() => console.log('teste')} type="submit" className="add-to-cart">
+                        <QuantityForm 
+                            quantity={quantity}
+                            setQuantity={setQuantity}
+                        />
+                        <button onClick={handleAddToCart} type="button" className="add-to-cart">
                             <CartIcon size={24} weight="fill" />
                         </button>
                     </form>

@@ -1,17 +1,22 @@
 import { useState } from "react";
 import { MinusIcon, PlusIcon, QuantityFormContainer } from "./style";
 
-export function QuantityForm() {
+interface QuantityFormProps {
+    quantity: number;
+    setQuantity: (quantity: number) => void;
+}
 
-    const [quantity, setQuantity] = useState(0);
+
+export function QuantityForm({quantity, setQuantity}: QuantityFormProps) {
+
+    
 
     function handleIncrement(value: number) {
-        if(value == -1 && quantity > 0){
-            setQuantity(quantity + value);
-        }else if(value == 1){
-            setQuantity(quantity + value);
+        if(value+quantity < 0) {
+            return
         }
 
+        setQuantity(quantity + value);
     }
 
     return (
