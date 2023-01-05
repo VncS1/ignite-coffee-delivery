@@ -14,12 +14,6 @@ export function QuantityForm() {
 
     }
 
-    function handleDecrement() {
-        if (quantity > 0) {
-            setQuantity(quantity - 1);
-        }
-    }
-
     return (
         <QuantityFormContainer>
             <button type="button" onClick={() => handleIncrement(-1)} className="button-quantity">
