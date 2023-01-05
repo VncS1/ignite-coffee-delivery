@@ -6,7 +6,7 @@ export function QuantityForm() {
             <button type="button" className="button-quantity">
                 <MinusIcon size={20} weight="fill" />
             </button>
-            <input type="number" className="quantity" min="1" defaultValue="0" />
+            <input type="number" disabled className="quantity" min="1" defaultValue="0" />
             <button type="button" className="button-quantity">
                 <PlusIcon size={20} weight="fill" />
             </button>

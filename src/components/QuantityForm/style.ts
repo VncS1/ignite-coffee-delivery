@@ -7,11 +7,16 @@ export const QuantityFormContainer = styled.form`
     justify-content: center;
     align-items: center;
         
+    
 
     .button-quantity {
         display: flex;
         border: 0;
         cursor: pointer;
+
+        box-shadow: none;
+        border-color: transparent;
+    
     }
 
     .quantity {
@@ -22,12 +27,15 @@ export const QuantityFormContainer = styled.form`
         background: ${props => props.theme["base-button"]};  
         font-size: 1rem ;
         font-family: 'Roboto', sans-serif;
+        box-shadow: none;
+        border-color: transparent;
     }
 
     input[type="number"]::-webkit-outer-spin-button,
     input[type="number"]::-webkit-inner-spin-button {
         -webkit-appearance: none;
         margin: 0;
+        
     }
     input[type="number"] {
         -moz-appearance: textfield;        

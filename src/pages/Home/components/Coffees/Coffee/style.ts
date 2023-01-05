@@ -11,7 +11,7 @@ export const CoffeeContainer = styled.div`
         
 
     img {
-        z-index: 1000;
+        z-index: 1;
         margin-bottom: -10rem;
         width: 120px;
     }
@@ -35,7 +35,7 @@ export const CoffeeInfos = styled.div`
     border-bottom-right-radius: 8px;
     background: ${props => props.theme["base-color"]};
 
-    z-index: -999;
+    
 
     .coffee-types {
         margin-top: 120px;
@@ -129,4 +129,5 @@ export const CoffeeInfos = styled.div`
 
 export const CartIcon = styled(ShoppingCart)`
     color: ${props => props.theme['background']};
+    cursor: pointer;
 `

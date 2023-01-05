@@ -9,6 +9,7 @@ export const GlobalStyle = createGlobalStyle`
     :focus {
         outline: 0;
         box-shadow: 0 0 0 2px ${(props) => props.theme['base-title']};
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     }
     body {
         background: ${(props) => props.theme['background']}; //Utilizando [] pois a variavel tem hífen

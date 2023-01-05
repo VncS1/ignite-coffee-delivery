@@ -3,6 +3,13 @@ import { CartIcon, CoffeeContainer, CoffeeInfos} from "./style";
 import coffeeImg from '../../../../../assets/coffee-images/americano.png';
 import { QuantityForm } from "../../../../../components/QuantityForm";
 
+interface CoffeeProps {
+    type: string[]
+    name: string;
+    description: string;
+
+}
+
 export function Coffee() {
     return (
         // Ordenar com display grid: 1fr 1fr 1fr 1fr 1fr (5 colunas)
@@ -23,12 +30,12 @@ export function Coffee() {
 
                 <div className="coffee-price">
                     <span className="price"><span className="cifra">R$</span> 9,90</span>
-                    <div className="price-forms">
+                    <form className="price-forms" action="#">
                         <QuantityForm />
-                        <button onClick={() => console.log('teste')} type="button" className="add-to-cart">
+                        <button onClick={() => console.log('teste')} type="submit" className="add-to-cart">
                             <CartIcon size={24} weight="fill" />
                         </button>
-                    </div>
+                    </form>
                 </div>
             </CoffeeInfos>
         </CoffeeContainer>
