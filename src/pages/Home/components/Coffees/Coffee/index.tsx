@@ -1,31 +1,35 @@
-import { CartIcon, CoffeeContainer, CoffeeInfos} from "./style";
+import { CartIcon, CoffeeContainer, CoffeeInfos } from "./style";
 
-import coffeeImg from '../../../../../assets/coffee-images/americano.png';
 import { QuantityForm } from "../../../../../components/QuantityForm";
 
 interface CoffeeProps {
+    image: string
     type: string[]
     name: string;
     description: string;
 
 }
 
-export function Coffee() {
+export function Coffee({ image, type, name, description }: CoffeeProps) {
     return (
         // Ordenar com display grid: 1fr 1fr 1fr 1fr 1fr (5 colunas)
         <CoffeeContainer>
-            <img src={coffeeImg} />
+            <img src={image} />
             <CoffeeInfos>
                 <div className="coffee-types">
-                    <div className="type">
-                        Tradicional
-                    </div>
+                    {type.map(type => {
+                        return (
+                            <div className="type">
+                                {type}
+                            </div>
+                        )
+                    })}
                 </div>
                 <span className="coffee-name">
-                    Expresso Tradicional
+                    {name}
                 </span>
                 <span className="coffee-description">
-                    O tradicional café feito com água quente e grãos moídos
+                    {description}
                 </span>
 
                 <div className="coffee-price">

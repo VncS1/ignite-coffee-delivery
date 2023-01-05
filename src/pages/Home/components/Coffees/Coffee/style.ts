@@ -8,6 +8,7 @@ export const CoffeeContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 2rem;
         
 
     img {
@@ -39,12 +40,14 @@ export const CoffeeInfos = styled.div`
 
     .coffee-types {
         margin-top: 120px;
+        display: flex;
+        gap: 0.25rem;
 
         .type {
             color: ${props => props.theme['yellow-dark']};
             background: ${props => props.theme['yellow-light']};
-            padding: 0.25rem .5rem;
-            width: 81px;
+            padding: 0.25rem 0.4rem;
+            
             font-size: 0.625rem;
 
             display: flex;

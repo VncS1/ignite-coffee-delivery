@@ -43,7 +43,8 @@ export const InfosContainer = styled.div`
     justify-content: center;
     flex-wrap: wrap;
 
-
+    position: relative;
+    right: 0.75rem;
 
     .buttonCart {
         background: ${props => props.theme['yellow-light']};
@@ -53,6 +54,31 @@ export const InfosContainer = styled.div`
         border-radius: 8px;
 
         margin-left: .5rem;
+        box-shadow: none;
+        border-color: transparent;
+        position: relative;
+
+        .cartCount {
+            color: ${props => props.theme['white']};
+            background-color: ${props => props.theme['yellow-dark']};
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 9999px;
+
+            position: absolute;
+            top: -0.5rem;
+            right: -0.75rem;
+
+            
+
+            padding: 0.25rem 0.5rem;
+            font-size: .75rem;
+            font-weight: 600;
+
+            
+        }
     }
 
     .localeContainer {
@@ -75,7 +101,7 @@ export const InfosContainer = styled.div`
 
     
     
-    @media(max-width: 400px){
+    @media(max-width: 425px){
         margin-top: 1rem;
     }
 `

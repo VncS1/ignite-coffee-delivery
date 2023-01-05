@@ -31,6 +31,9 @@ export const ItemContainer = styled.div`
                     align-items: center;
 
                     font-size: 0.75rem;
+
+                    box-shadow: none;
+                    border-color: transparent;
                     
 
                     background-color: ${props => props.theme["base-button"]};

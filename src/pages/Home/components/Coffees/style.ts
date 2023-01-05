@@ -41,7 +41,7 @@ export const CoffeesContainer = styled.div`
         gap: 1rem;
     }
 
-    @media (max-width: 768px){
+    @media (max-width: 850px){
         grid-template-columns: 1fr 1fr;
         gap: 1rem;
     }
