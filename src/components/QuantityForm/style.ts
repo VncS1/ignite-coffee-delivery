@@ -1,7 +1,7 @@
 import { Minus, Plus } from "phosphor-react";
 import styled from "styled-components";
 
-export const QuantityFormContainer = styled.form`
+export const QuantityFormContainer = styled.div`
 
     display: flex;
     justify-content: center;

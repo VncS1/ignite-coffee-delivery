@@ -14,7 +14,8 @@ export function Coffees() {
                 {coffees.map(coffee => {
                     return (
                         <Coffee 
-                            key={coffee.name}
+                            key={coffee.id}
+                            id = {coffee.id}
                             image={coffee.image}
                             type={coffee.type}
                             name={coffee.name}

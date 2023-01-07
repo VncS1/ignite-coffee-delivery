@@ -5,26 +5,58 @@ import { useContext, useState } from "react";
 import { CoffeesContext } from "../../../../../contexts/CoffeesContext";
 
 interface CoffeeProps {
+    id: number
     image: string
     type: string[]
     name: string;
     description: string;
 }
 
-export function Coffee({ image, type, name, description }: CoffeeProps) {
+export function Coffee({ id, image, type, name, description }: CoffeeProps) {
 
     const { setCoffees, coffees } = useContext(CoffeesContext)
 
     const [quantity, setQuantity] = useState(0);
 
-    function handleAddToCart(){
-        setCoffees([...coffees, {
-            image,
-            type,
-            name,
-            description,
-            quantity
-        }])
+    function handleAddToCart() {
+        if (quantity === 0) {
+            return
+        }
+
+        let coffeeExists = false;
+        let coffeeQuantity = 0
+
+        coffees.map(coffee => {
+            if (coffee.id === id) {
+                coffeeExists = true;
+                //quantidade antiga
+                if (coffeeQuantity !== quantity) {
+                    setCoffees(coffees.map(coffee => {
+                        if (coffee.id === id) {
+                            return {
+                                ...coffee,
+                                quantity //atualizar a quantidade
+                            }
+                        }
+                        return coffee
+                    }))
+                }
+            }
+        })
+
+        if (coffeeExists) {
+            return console.log("Carrinho atualizado")
+        } else {
+            setCoffees([...coffees, {
+                id,
+                image,
+                type,
+                name,
+                description,
+                quantity
+            }])
+        }
+
     }
 
     return (
@@ -34,7 +66,10 @@ export function Coffee({ image, type, name, description }: CoffeeProps) {
                 <div className="coffee-types">
                     {type.map(type => {
                         return (
-                            <div className="type">
+                            <div
+                                key={type}
+                                className="type"
+                            >
                                 {type}
                             </div>
                         )
@@ -50,7 +85,7 @@ export function Coffee({ image, type, name, description }: CoffeeProps) {
                 <div className="coffee-price">
                     <span className="price"><span className="cifra">R$</span> 9,90</span>
                     <form className="price-forms" action="#">
-                        <QuantityForm 
+                        <QuantityForm
                             quantity={quantity}
                             setQuantity={setQuantity}
                         />

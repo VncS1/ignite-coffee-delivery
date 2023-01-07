@@ -1,6 +1,7 @@
 import { createContext, ReactNode, useState } from "react"
 
 interface CartProps {
+    id: number
     image: string
     type: string[]
     name: string

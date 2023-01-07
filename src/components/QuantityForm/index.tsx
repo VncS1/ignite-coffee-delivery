@@ -24,7 +24,7 @@ export function QuantityForm({quantity, setQuantity}: QuantityFormProps) {
             <button type="button" onClick={() => handleIncrement(-1)} className="button-quantity">
                 <MinusIcon size={20} weight="fill" />
             </button>
-            <input type="number" disabled className="quantity" min="1" defaultValue="0" value={quantity} />
+            <input type="text" disabled className="quantity" min="1" value={quantity} />
             <button type="button" className="button-quantity">
                 <PlusIcon size={20} onClick={() => handleIncrement(1)} weight="fill" />
             </button>
