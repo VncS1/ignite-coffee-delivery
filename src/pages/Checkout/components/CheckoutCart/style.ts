@@ -5,6 +5,7 @@ export const CartContainer = styled.main`
     padding: 2.5rem;
     background: ${props => props.theme["base-color"]};
     max-height: 498px;
+    
 
     border-top-right-radius: 48px;
     border-bottom-left-radius: 48px;
@@ -12,15 +13,32 @@ export const CartContainer = styled.main`
     border-top-left-radius: 8px;
     border-bottom-right-radius: 8px;
 
+    
+
 
     /* @media (max-width: 425px) {
         padding: 2rem .5rem;
         max-width: 95%;
         margin: 0 auto;
     } */
+
+    .products {
+        .empty-cart {
+            padding: 0 4rem 2.5rem 4rem ;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .empty-cart-text {
+                font-weight: bold;
+                font-size: 1.2rem;
+            }
+        }
+    }
     
     @media(max-width: 1024px){
         margin-bottom: 2rem;
+        width: 100%;
     }
 `
 

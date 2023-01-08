@@ -12,52 +12,13 @@ interface CoffeeProps {
     description: string;
 }
 
-export function Coffee({ id, image, type, name, description }: CoffeeProps) {
+export function Coffee({id, image, type, name, description }: CoffeeProps) {
 
-    const { setCoffees, coffees } = useContext(CoffeesContext)
+    const { setCoffees, coffees, handleAddToCart } = useContext(CoffeesContext)
 
     const [quantity, setQuantity] = useState(0);
 
-    function handleAddToCart() {
-        if (quantity === 0) {
-            return
-        }
-
-        let coffeeExists = false;
-        let coffeeQuantity = 0
-
-        coffees.map(coffee => {
-            if (coffee.id === id) {
-                coffeeExists = true;
-                //quantidade antiga
-                if (coffeeQuantity !== quantity) {
-                    setCoffees(coffees.map(coffee => {
-                        if (coffee.id === id) {
-                            return {
-                                ...coffee,
-                                quantity //atualizar a quantidade
-                            }
-                        }
-                        return coffee
-                    }))
-                }
-            }
-        })
-
-        if (coffeeExists) {
-            return console.log("Carrinho atualizado")
-        } else {
-            setCoffees([...coffees, {
-                id,
-                image,
-                type,
-                name,
-                description,
-                quantity
-            }])
-        }
-
-    }
+    
 
     return (
         <CoffeeContainer>
@@ -89,7 +50,7 @@ export function Coffee({ id, image, type, name, description }: CoffeeProps) {
                             quantity={quantity}
                             setQuantity={setQuantity}
                         />
-                        <button onClick={handleAddToCart} type="button" className="add-to-cart">
+                        <button onClick={() => handleAddToCart({id, image, type, name, description, quantity})} disabled={quantity === 0} type="button" className="add-to-cart">
                             <CartIcon size={24} weight="fill" />
                         </button>
                     </form>

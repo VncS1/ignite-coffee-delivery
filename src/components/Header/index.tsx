@@ -2,12 +2,21 @@ import { InfosContainer, HeaderContainer, MapIcon, CartIcon } from "./style";
 
 import logo from '../../assets/logo.png'
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { CoffeesContext } from "../../contexts/CoffeesContext";
 
 
 export function Header() {
+
+    const { coffees } = useContext(CoffeesContext)
+
+    const coffeeCount = !!coffees.length
+
     return (
         <HeaderContainer>
-            <img src={logo} />
+            <NavLink to="/">
+                <img src={logo} />
+            </NavLink>
 
             <InfosContainer>
                 <div className="localeContainer">
@@ -16,7 +25,9 @@ export function Header() {
                 </div>
 
                 <NavLink to="/checkout" className="buttonCart">
-                    <div className="cartCount">2</div>
+                    {coffeeCount && (
+                        <div className="cartCount">{coffees.length}</div>
+                    )}
                     <CartIcon size={24} weight="fill" />
                 </NavLink>
             </InfosContainer>

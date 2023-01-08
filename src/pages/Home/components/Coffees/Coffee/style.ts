@@ -120,6 +120,11 @@ export const CoffeeInfos = styled.div`
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                cursor: pointer;
+
+                &:disabled {
+                    cursor: not-allowed;
+                }
             }
 
             
@@ -131,6 +136,5 @@ export const CoffeeInfos = styled.div`
 `
 
 export const CartIcon = styled(ShoppingCart)`
-    color: ${props => props.theme['background']};
-    cursor: pointer;
+    color: ${props => props.theme['background']}; 
 `
