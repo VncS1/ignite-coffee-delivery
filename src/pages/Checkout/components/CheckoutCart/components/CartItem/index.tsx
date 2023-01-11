@@ -8,10 +8,11 @@ interface CartProps {
     id: number
     image: string
     name: string
+    price:number
     quantityItems: number
 }
 
-export function CartItem({id, image, name, quantityItems}: CartProps) {
+export function CartItem({id, image, name, price, quantityItems}: CartProps) {
     const { handleUpdateQuantityCart } = useContext(CoffeesContext)
 
     const [quantity, setQuantity] = useState(quantityItems);
@@ -41,7 +42,7 @@ export function CartItem({id, image, name, quantityItems}: CartProps) {
                     </div>
 
                 </div>
-                <span className="product-price">R$ 5,00</span>
+                <span className="product-price">R$ {price.toFixed(2)}</span>
             </div>
 
             <hr className="line" />

@@ -6,6 +6,7 @@ interface CartProps {
     type: string[]
     name: string
     description: string
+    price: number
     quantity: number
 }
 
@@ -78,6 +79,7 @@ export function CoffeesContextProvider({ children }: CoffeesContextProviderProps
                 type: coffee.type,
                 name: coffee.name,
                 description: coffee.description,
+                price: coffee.price,
                 quantity: coffee.quantity
             }])
         }

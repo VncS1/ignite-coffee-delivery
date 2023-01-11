@@ -1,22 +1,23 @@
-import { CartIcon, CoffeeContainer, CoffeeInfos } from "./style";
+import { CartIcon, CoffeeContainer, CoffeeInfos } from "./style"
 
-import { QuantityForm } from "../../../../../components/QuantityForm";
-import { useContext, useState } from "react";
-import { CoffeesContext } from "../../../../../contexts/CoffeesContext";
+import { QuantityForm } from "../../../../../components/QuantityForm"
+import { useContext, useState } from "react"
+import { CoffeesContext } from "../../../../../contexts/CoffeesContext"
 
 interface CoffeeProps {
     id: number
     image: string
     type: string[]
-    name: string;
-    description: string;
+    name: string
+    description: string
+    price: number
 }
 
-export function Coffee({id, image, type, name, description }: CoffeeProps) {
+export function Coffee({id, image, type, name, description, price }: CoffeeProps) {
 
     const { setCoffees, coffees, handleAddToCart } = useContext(CoffeesContext)
 
-    const [quantity, setQuantity] = useState(0);
+    const [quantity, setQuantity] = useState(0)
 
     
 
@@ -44,13 +45,13 @@ export function Coffee({id, image, type, name, description }: CoffeeProps) {
                 </span>
 
                 <div className="coffee-price">
-                    <span className="price"><span className="cifra">R$</span> 9,90</span>
+                    <span className="price"><span className="cifra">R$</span> {price.toFixed(2)}</span>
                     <form className="price-forms" action="#">
                         <QuantityForm
                             quantity={quantity}
                             setQuantity={setQuantity}
                         />
-                        <button onClick={() => handleAddToCart({id, image, type, name, description, quantity})} disabled={quantity === 0} type="button" className="add-to-cart">
+                        <button onClick={() => handleAddToCart({id, image, type, name, description, quantity, price})} disabled={quantity === 0} type="button" className="add-to-cart">
                             <CartIcon size={24} weight="fill" />
                         </button>
                     </form>

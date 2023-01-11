@@ -14,10 +14,6 @@ export const FormContainer = styled.form`
     
     margin-bottom: 0.75rem;
 
-    
-
-    
-    
         .title-text {
             display: flex;
             align-items: flex-start;
@@ -142,10 +138,10 @@ export const PaymentMethods = styled.div`
     } */
 `
 
-export const PaymentMethod = styled.div`
+export const PaymentMethod = styled.button`
     display: flex;
     align-items: center;
-
+    
     width: 175px;
 
     font-size: 0.7rem;
@@ -156,6 +152,12 @@ export const PaymentMethod = styled.div`
     gap: 0.30rem;
 
     border-radius: 8px;
+
+    border: 0;
+
+    @media(max-width: 768px){
+        justify-content: center;
+    }
 `
 
 export const MapPinIcon = styled(MapPinLine)`

@@ -20,6 +20,7 @@ export function Coffees() {
                             type={coffee.type}
                             name={coffee.name}
                             description={coffee.description}
+                            price={coffee.price}
                         />
                     )
                 })}

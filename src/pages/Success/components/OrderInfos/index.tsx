@@ -6,15 +6,24 @@ import {
     OrderInfo
 } from "./style"
 
-export function OrderInfos() {
+interface OrderProps {
+    rua: string
+    numero: string
+    bairro: string
+    cidade: string
+    uf: string
+    pagamento: string
+}
+
+export function OrderInfos({rua, numero, bairro, cidade, uf, pagamento}: OrderProps) {
     return (
         <OrderInfosContainer>
             
                 <OrderInfo>
                     <PinIcon size={32} weight="fill" />
                     <span className="main-text">
-                        Entrega em <span className="text-bold">Rua João Daniel Martineli, 102</span><br />
-                        Farrapos - Porto Alegre, RS
+                        Entrega em <span className="text-bold">Rua {rua}, {numero}</span><br />
+                        {bairro} - {cidade}, {uf}
                     </span>
                 </OrderInfo>
                 <OrderInfo>
@@ -28,7 +37,7 @@ export function OrderInfos() {
                     <DollarIcon size={32} weight="fill" />
                     <span className="main-text">
                         Pagamento na Entrega<br />
-                        <span className="text-bold">Cartão de Crédito</span>
+                        <span className="text-bold">{pagamento}</span>
                     </span>
                 </OrderInfo>
             

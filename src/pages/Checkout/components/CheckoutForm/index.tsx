@@ -1,6 +1,9 @@
+import { useFormContext } from "react-hook-form";
 import { FormContainer, MainContainer, PaymentMethods, MapPinIcon, DollarIcon, CreditCardIcon, BankIcon, MoneyIcon, PaymentMethod } from "./style";
 
 export function CheckoutForm() {
+    const { register } = useFormContext()
+
     return (
         <MainContainer>
 
@@ -14,13 +17,48 @@ export function CheckoutForm() {
                 </div>
 
                 <div className="input-container">
-                    <input type="text" placeholder="CEP" className="cep" />
-                    <input type="text" placeholder="Rua" className="rua" />
-                    <input type="text" placeholder="Número" className="num" />
-                    <input type="text" placeholder="Complemento*" className="complemento" />
-                    <input type="text" placeholder="Bairro" className="bairro" />
-                    <input type="text" placeholder="Cidade" className="cidade" />
-                    <input type="text" placeholder="UF" className="uf" />
+                    <input
+                        type="text"
+                        placeholder="CEP"
+                        className="cep"
+                        {...register('cep')}
+                    />
+                    <input
+                        type="text"
+                        placeholder="Rua"
+                        className="rua"
+                        {...register('rua')}
+                    />
+                    <input
+                        type="text"
+                        placeholder="Número"
+                        className="num"
+                        {...register('num')}
+                    />
+                    <input
+                        type="text"
+                        placeholder="Complemento*"
+                        className="complemento"
+                        {...register('complemento')}
+                    />
+                    <input
+                        type="text"
+                        placeholder="Bairro"
+                        className="bairro"
+                        {...register('bairro')}
+                    />
+                    <input
+                        type="text"
+                        placeholder="Cidade"
+                        className="cidade"
+                        {...register('cidade')}
+                    />
+                    <input
+                        type="text"
+                        placeholder="UF"
+                        className="uf"
+                        {...register('uf')}
+                    />
                 </div>
 
             </FormContainer>
@@ -35,15 +73,21 @@ export function CheckoutForm() {
                 </div>
 
                 <div className="methods">
-                    <PaymentMethod>
+                    <PaymentMethod
+                        {...register('credit')}
+                    >
                         <CreditCardIcon size={16} />
                         <span>CARTÃO DE CRÉDITO</span>
                     </PaymentMethod>
-                    <PaymentMethod>
+                    <PaymentMethod
+                        {...register('debt')}
+                    >
                         <BankIcon size={16} />
                         <span>CARTÃO DE DÉBITO</span>
                     </PaymentMethod>
-                    <PaymentMethod>
+                    <PaymentMethod
+                        {...register('money')}
+                    >
                         <MoneyIcon size={16} />
                         <span>DINHEIRO</span>
                     </PaymentMethod>
