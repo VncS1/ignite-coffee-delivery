@@ -7,7 +7,7 @@ import { CartContainer, FinalPrice, CheckoutButton } from "./style";
 export function CheckoutCart() {
     const { coffees } = useContext(CoffeesContext)
 
-    const coffeesCount = !!coffees.length
+    const coffeesCount = !!coffees?.length
 
     return (
         <CartContainer>

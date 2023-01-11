@@ -13,7 +13,8 @@ interface CoffeesContextData {
     coffees: CartProps[]
     setCoffees: (coffees: CartProps[]) => void
     handleAddToCart: (coffee: CartProps) => void
-    handleChangeQuantity: (coffee: CartProps, newQuantity: number) => void
+    handleChangeQuantityHome: (id: number, newQuantity: number) => void
+    handleUpdateQuantityCart: (id: number, newQuantity: number) => void
 }
 
 export const CoffeesContext = createContext<CoffeesContextData>({} as CoffeesContextData)
@@ -32,29 +33,44 @@ export function CoffeesContextProvider({ children }: CoffeesContextProviderProps
         localStorage.setItem('@ignite-coffee-delivery:coffees-state-1.0.0', stateJSON)
     }, [coffees])
 
-    function handleChangeQuantity(coffee: CartProps, newQuantity: number) {
-        const cartItem = coffees.find(c => c.id === coffee.id)
+
+    function handleChangeQuantityHome(id: number, newQuantity: number) {
+        const cartItem = coffees.find(c => c.id === id)
 
         if (cartItem) {
-            if (cartItem.quantity !== coffee.quantity) {
-                cartItem.quantity = newQuantity
+            cartItem.quantity += newQuantity
 
-                const cart = coffees.filter(c => c.id !== coffee.id)
-                setCoffees([...cart, cartItem])
-            }
-        }else {
+            const cart = coffees.filter(c => c.id !== id)
+            setCoffees([...cart, cartItem])
+
+        } else {
             return
         }
 
     }
 
-    
+    function handleUpdateQuantityCart(id: number, newQuantity: number) {
+        const cartItem = coffees.find(c => c.id === id)
+
+        if (cartItem) {
+            cartItem.quantity = newQuantity
+
+            const cart = coffees.filter(c => c.id !== id)
+            setCoffees([...cart, cartItem])
+
+        } else {
+            return
+        }
+
+    }
+
+
 
     function handleAddToCart(coffee: CartProps) {
         const cartItem = coffees.find(c => c.id === coffee.id)
 
         if (cartItem) {
-            handleChangeQuantity(coffee, coffee.quantity)
+            handleChangeQuantityHome(coffee.id, coffee.quantity)
         } else {
             setCoffees([...coffees, {
                 id: coffee.id,
@@ -74,7 +90,8 @@ export function CoffeesContextProvider({ children }: CoffeesContextProviderProps
                 coffees,
                 setCoffees,
                 handleAddToCart,
-                handleChangeQuantity
+                handleChangeQuantityHome,
+                handleUpdateQuantityCart
             }}
         >
             {children}

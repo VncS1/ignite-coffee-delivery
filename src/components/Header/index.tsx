@@ -10,7 +10,7 @@ export function Header() {
 
     const { coffees } = useContext(CoffeesContext)
 
-    const coffeeCount = !!coffees.length
+    const coffeeCount = !!coffees?.length
 
     return (
         <HeaderContainer>

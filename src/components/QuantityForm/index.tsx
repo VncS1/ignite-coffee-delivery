@@ -10,7 +10,7 @@ interface QuantityFormProps {
 
 export function QuantityForm({ quantity, setQuantity }: QuantityFormProps) {
 
-    const { handleChangeQuantity } = useContext(CoffeesContext)
+    const {  } = useContext(CoffeesContext)
 
     function handleFormIncrement(value: number) {
         if (value + quantity < 0) {
@@ -18,6 +18,7 @@ export function QuantityForm({ quantity, setQuantity }: QuantityFormProps) {
         }
 
         setQuantity(quantity + value)
+
     }
 
     return (
