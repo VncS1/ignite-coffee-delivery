@@ -1,3 +1,5 @@
+import { useContext } from "react"
+import { PurchaseContext } from "../../../../contexts/PurchaseContext"
 import {
     OrderInfosContainer,
     PinIcon,
@@ -6,24 +8,17 @@ import {
     OrderInfo
 } from "./style"
 
-interface OrderProps {
-    rua: string
-    numero: string
-    bairro: string
-    cidade: string
-    uf: string
-    pagamento: string
-}
-
-export function OrderInfos({rua, numero, bairro, cidade, uf, pagamento}: OrderProps) {
+export function OrderInfos() {
+    const { purchase } = useContext(PurchaseContext)
+    console.log(purchase)
     return (
         <OrderInfosContainer>
             
                 <OrderInfo>
                     <PinIcon size={32} weight="fill" />
                     <span className="main-text">
-                        Entrega em <span className="text-bold">Rua {rua}, {numero}</span><br />
-                        {bairro} - {cidade}, {uf}
+                        Entrega em <span className="text-bold">Rua {purchase.rua}, {purchase.num}</span><br />
+                        {purchase.bairro} - {purchase.cidade}, {purchase.uf}
                     </span>
                 </OrderInfo>
                 <OrderInfo>
@@ -37,7 +32,7 @@ export function OrderInfos({rua, numero, bairro, cidade, uf, pagamento}: OrderPr
                     <DollarIcon size={32} weight="fill" />
                     <span className="main-text">
                         Pagamento na Entrega<br />
-                        <span className="text-bold">{pagamento}</span>
+                        <span className="text-bold">{purchase.pagamento}</span>
                     </span>
                 </OrderInfo>
             

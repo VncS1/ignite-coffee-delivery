@@ -1,8 +1,12 @@
+import { useContext } from "react";
 import { useFormContext } from "react-hook-form";
+import { PurchaseContext } from "../../../../contexts/PurchaseContext";
 import { FormContainer, MainContainer, PaymentMethods, MapPinIcon, DollarIcon, CreditCardIcon, BankIcon, MoneyIcon, PaymentMethod } from "./style";
 
 export function CheckoutForm() {
     const { register } = useFormContext()
+    const { handleSetPaymentMethod } = useContext(PurchaseContext)
+
 
     return (
         <MainContainer>
@@ -73,24 +77,34 @@ export function CheckoutForm() {
                 </div>
 
                 <div className="methods">
-                    <PaymentMethod
-                        {...register('credit')}
-                    >
-                        <CreditCardIcon size={16} />
-                        <span>CARTÃO DE CRÉDITO</span>
-                    </PaymentMethod>
-                    <PaymentMethod
-                        {...register('debt')}
-                    >
-                        <BankIcon size={16} />
-                        <span>CARTÃO DE DÉBITO</span>
-                    </PaymentMethod>
-                    <PaymentMethod
-                        {...register('money')}
-                    >
-                        <MoneyIcon size={16} />
-                        <span>DINHEIRO</span>
-                    </PaymentMethod>
+
+                    <form action="#">
+                        <PaymentMethod
+                            type="button"
+                            value="Cartão de Crédito"
+                            onClick={() => {handleSetPaymentMethod("Cartão de Crédito")}}
+                        >
+                            <CreditCardIcon size={16} />
+                            <span>CARTÃO DE CRÉDITO</span>
+                        </PaymentMethod>
+                        <PaymentMethod
+                            type="button"
+                            value="Cartão de Débito"
+                            onClick={() => {handleSetPaymentMethod("Cartão de Débito")}}
+                        >
+                            <BankIcon size={16} />
+                            <span>CARTÃO DE DÉBITO</span>
+                        </PaymentMethod>
+                        <PaymentMethod
+                            type="button"
+                            value="Dinheiro"
+                            onClick={() => {handleSetPaymentMethod("Dinheiro")}}
+                        >
+                            <MoneyIcon size={16} />
+                            <span>DINHEIRO</span>
+                        </PaymentMethod>
+                    </form>
+
                 </div>
             </PaymentMethods>
         </MainContainer>

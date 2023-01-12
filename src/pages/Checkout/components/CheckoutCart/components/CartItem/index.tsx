@@ -8,20 +8,20 @@ interface CartProps {
     id: number
     image: string
     name: string
-    price:number
+    price: number
     quantityItems: number
 }
 
-export function CartItem({id, image, name, price, quantityItems}: CartProps) {
-    const { handleUpdateQuantityCart } = useContext(CoffeesContext)
+export function CartItem({ id, image, name, price, quantityItems }: CartProps) {
+    const { handleUpdateQuantityCart, handleRemoveFromCart } = useContext(CoffeesContext)
 
     const [quantity, setQuantity] = useState(quantityItems);
 
-    function handleChangeCartQuantity(_quantity: number){
+    function handleChangeCartQuantity(_quantity: number) {
 
-        handleUpdateQuantityCart(id ,_quantity)
+        handleUpdateQuantityCart(id, _quantity)
         return setQuantity(_quantity)
-        
+
     }
 
     return (
@@ -33,11 +33,19 @@ export function CartItem({id, image, name, price, quantityItems}: CartProps) {
                     <div className="product-details">
                         <span className="product-name">{name}</span>
                         <div className="edit-product">
-                            <QuantityForm 
+                            <QuantityForm
                                 setQuantity={handleChangeCartQuantity}
                                 quantity={quantity}
                             />
-                            <button type="button" className="remove-button"><TrashIcon size={16} /><span>REMOVER</span></button>
+                            
+                            <button
+                                type="button"
+                                className="remove-button"  
+                                onClick={() => handleRemoveFromCart(id)}
+                            >
+                                <TrashIcon size={16} />
+                                <span>REMOVER</span>
+                            </button>
                         </div>
                     </div>
 

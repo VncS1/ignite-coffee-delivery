@@ -1,11 +1,15 @@
 import { useContext } from "react";
 import { useFormContext } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { CoffeesContext } from "../../../../contexts/CoffeesContext";
+import { PurchaseContext, PurchaseProps } from "../../../../contexts/PurchaseContext";
 import { CartItem } from "./components/CartItem";
 import { CartContainer, FinalPrice, CheckoutButton } from "./style";
 
 export function CheckoutCart() {
-    const { coffees } = useContext(CoffeesContext)
+    const { coffees, handleClearCart } = useContext(CoffeesContext)
+    const { handleSubmit, reset } = useFormContext()
+    const { handleCreatePurchase } = useContext(PurchaseContext)
 
     const coffeesCount = !!coffees?.length
 
@@ -14,14 +18,38 @@ export function CheckoutCart() {
         return acc + coffee.quantity
     }, 0)
 
-
     let itemsPrice = totalItems * 9.9
 
     //Preço de todos os items são 9,90, então só multiplico pela qtd de items no carrinho
     //somando com o preço fixo do frete
     let finalPrice = (totalItems * 9.9) + 3.5
 
-    const { handleSubmit, reset } = useFormContext()
+    
+
+    const routeChange = () => {
+        let path = `/success`
+        navigate(path)
+    }
+
+    function handleChangeRoute() {
+        routeChange()
+    }
+
+    function handleCreatePurchaseSubmit(data: PurchaseProps) {
+        if (coffeesCount) {
+            handleCreatePurchase(data)
+            handleChangeRoute()
+            handleClearCart()
+            reset()
+        }else {
+            alert('Carrinho está vazio!')
+        }
+
+    }
+
+    const navigate = useNavigate()
+
+
 
     return (
         <CartContainer>
@@ -59,7 +87,8 @@ export function CheckoutCart() {
                     <span className="final-price-value">R$ {finalPrice.toFixed(2)}</span>
                 </div>
             </FinalPrice>
-            <form action="#" onSubmit={handleSubmit((data) => {console.log(data)/*, reset()*/})}>
+            {/*//@ts-ignore */}
+            <form action="#" onSubmit={handleSubmit(handleCreatePurchaseSubmit)}>
                 <CheckoutButton type="submit">
                     Confirmar Pedido
                 </CheckoutButton>

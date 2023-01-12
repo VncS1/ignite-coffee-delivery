@@ -125,10 +125,12 @@ export const PaymentMethods = styled.div`
     }
 
     .methods {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 0.75rem;
+        form {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
     }
 
     /* @media (max-width: 425px) {
@@ -153,7 +155,18 @@ export const PaymentMethod = styled.button`
 
     border-radius: 8px;
 
-    border: 0;
+    border: 1px solid transparent;
+    box-shadow: none;
+    
+    cursor: pointer;
+
+
+    &:focus {
+        border: 1px solid ${props => props.theme["purple-light"]};
+        background-color: ${props => props.theme['purple-light']};
+        box-shadow: none;
+        
+    }
 
     @media(max-width: 768px){
         justify-content: center;

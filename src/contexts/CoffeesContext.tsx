@@ -16,6 +16,8 @@ interface CoffeesContextData {
     handleAddToCart: (coffee: CartProps) => void
     handleChangeQuantityHome: (id: number, newQuantity: number) => void
     handleUpdateQuantityCart: (id: number, newQuantity: number) => void
+    handleRemoveFromCart: (id: number) => void
+    handleClearCart: () => void
 }
 
 export const CoffeesContext = createContext<CoffeesContextData>({} as CoffeesContextData)
@@ -85,6 +87,16 @@ export function CoffeesContextProvider({ children }: CoffeesContextProviderProps
         }
     }
 
+    function handleRemoveFromCart(id: number) {
+        const cart = coffees.filter(c => c.id !== id)
+
+        setCoffees(cart)
+    }
+
+    function handleClearCart(){
+        setCoffees([])
+    }
+
     console.log(coffees)
     return (
         <CoffeesContext.Provider
@@ -93,7 +105,9 @@ export function CoffeesContextProvider({ children }: CoffeesContextProviderProps
                 setCoffees,
                 handleAddToCart,
                 handleChangeQuantityHome,
-                handleUpdateQuantityCart
+                handleUpdateQuantityCart,
+                handleRemoveFromCart,
+                handleClearCart
             }}
         >
             {children}

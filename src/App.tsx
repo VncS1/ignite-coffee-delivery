@@ -2,6 +2,7 @@ import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { Header } from "./components/Header";
 import { CoffeesContextProvider } from "./contexts/CoffeesContext";
+import { PurchaseContextProvider } from "./contexts/PurchaseContext";
 import { Router } from "./router";
 
 import { GlobalStyle } from "./styles/global";
@@ -12,8 +13,10 @@ export function App() {
     <ThemeProvider theme={defaultTheme}>
       <BrowserRouter>
         <CoffeesContextProvider>
-          <Header />
-          <Router />
+          <PurchaseContextProvider>
+            <Header />
+            <Router />
+          </PurchaseContextProvider>
         </CoffeesContextProvider>
         <GlobalStyle />
       </BrowserRouter>

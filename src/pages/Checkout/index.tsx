@@ -14,12 +14,9 @@ const addressFormValidationSchema = zod.object({
   cidade: zod.string().min(4),
   bairro: zod.string().min(4),
   uf: zod.string().length(2),
-  credit: zod.string(),
-  debt: zod.string(),
-  money: zod.string()
 })
 
-type addressFormData = zod.infer<typeof addressFormValidationSchema>
+export type addressFormData = zod.infer<typeof addressFormValidationSchema>
 
 export function Checkout() {
 
@@ -33,10 +30,6 @@ export function Checkout() {
       bairro: '',
       cidade: '',
       uf: '',
-      pagamento: '',
-      credit: 'Cartão de Crédito',
-      debt: 'Cartão de Débito',
-      money: 'Dinheiro'
     }
   })
 
