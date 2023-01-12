@@ -26,11 +26,12 @@ interface PurchaseContextProviderProps {
 export function PurchaseContextProvider({ children }: PurchaseContextProviderProps) {
     const [purchase, setPurchase] = useState<PurchaseProps>({} as PurchaseProps)
     
-    console.log(purchase)
-
-    function handleCreatePurchase(purchase: PurchaseProps) {
-        setPurchase(purchase)
-        console.log(purchase)
+    function handleCreatePurchase(newPurchase: PurchaseProps) {
+        
+        setPurchase({
+            ...newPurchase,
+            pagamento: purchase.pagamento
+        })
     }
 
     function handleSetPaymentMethod(paymentMethod: string) {
@@ -38,8 +39,6 @@ export function PurchaseContextProvider({ children }: PurchaseContextProviderPro
             ...purchase,
             pagamento: paymentMethod
         })
-
-        console.log(purchase)
     }
 
     return (

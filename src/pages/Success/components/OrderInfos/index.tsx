@@ -10,7 +10,6 @@ import {
 
 export function OrderInfos() {
     const { purchase } = useContext(PurchaseContext)
-    console.log(purchase)
     return (
         <OrderInfosContainer>
             

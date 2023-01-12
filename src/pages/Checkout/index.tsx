@@ -7,13 +7,13 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
 
 const addressFormValidationSchema = zod.object({
-  cep: zod.string().length(8),
-  rua: zod.string().min(7),
-  num: zod.string().min(1),
+  cep: zod.string().length(8, 'CEP inválido'),
+  rua: zod.string().min(5, 'Preencha o campo corretamente.'),
+  num: zod.string().min(1, 'Preencha o campo corretamente.'),
   complemento: zod.string(),
-  cidade: zod.string().min(4),
-  bairro: zod.string().min(4),
-  uf: zod.string().length(2),
+  cidade: zod.string().min(4, 'Preencha o campo corretamente.'),
+  bairro: zod.string().min(4, 'Preencha o campo corretamente.'),
+  uf: zod.string().length(2, 'Permitido apenas 2 caracteres.'),
 })
 
 export type addressFormData = zod.infer<typeof addressFormValidationSchema>

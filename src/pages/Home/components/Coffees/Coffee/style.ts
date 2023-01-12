@@ -122,6 +122,9 @@ export const CoffeeInfos = styled.div`
                 align-items: center;
                 cursor: pointer;
 
+                box-shadow: none;
+                border-color: transparent;
+
                 &:disabled {
                     cursor: not-allowed;
                 }

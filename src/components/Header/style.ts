@@ -12,6 +12,14 @@ export const HeaderContainer = styled.header`
     width: 100%;
     max-width: 1120px;
     margin: 0 auto;
+    box-shadow: none;
+    border-color: transparent;
+
+    .link {
+        box-shadow: none;
+        border-color: transparent;
+
+    }
 
     @media(max-width: 1200px){
         width: 100%;

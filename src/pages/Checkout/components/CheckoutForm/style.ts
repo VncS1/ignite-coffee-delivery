@@ -58,6 +58,9 @@ export const FormContainer = styled.form`
                 padding: 0.75rem;
 
                 font-size: 0.875rem;
+
+                box-shadow: none;
+                border-color: transparent;
             }
 
             .cep{

@@ -86,5 +86,12 @@ export const CheckoutButton = styled.button`
     border-radius: 4px;
     border: 0;
 
-    width: 100%
+    width: 100%;
+
+    box-shadow: none;
+    border-color: transparent;
+
+    transition: all 0.2s;
+
+    cursor: pointer;
 `
