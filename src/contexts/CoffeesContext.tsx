@@ -27,8 +27,9 @@ interface CoffeesContextProviderProps {
 }
 
 export function CoffeesContextProvider({ children }: CoffeesContextProviderProps) {
-
-    const [coffees, setCoffees] = useState<CartProps[]>([])
+    //pegando o que está armazenado no storage antes de iniciar o coffees
+    const storedStateAsJSON = localStorage.getItem('@ignite-coffee-delivery:coffees-state-1.0.0')
+    const [coffees, setCoffees] = useState<CartProps[]>(storedStateAsJSON ? JSON.parse(storedStateAsJSON) : [])
 
     //salvando o carrinho no local storage
     useEffect(() => {
@@ -40,17 +41,13 @@ export function CoffeesContextProvider({ children }: CoffeesContextProviderProps
     }, [coffees])
 
     //recuperando o carrinho do localstorage
-    // useEffect(() => {
-
-    //     const storedStateAsJSON = localStorage.getItem('@ignite-coffee-delivery:coffees-state-1.0.0')
-    //     console.log("JSon" + storedStateAsJSON)
-
-    //     if (storedStateAsJSON) {
-    //         const storedState = JSON.parse(storedStateAsJSON)
-    //         console.log("State:" + storedState)
-    //         setCoffees(storedState)
-    //     }
-    // }, [])
+    useEffect(() => {
+        if (storedStateAsJSON) {
+            const storedState = JSON.parse(storedStateAsJSON)
+            console.log("State:" + storedState)
+            setCoffees(storedState)
+        }
+    }, [])
 
     function handleChangeQuantityHome(id: number, newQuantity: number) {
         const cartItem = coffees.find(c => c.id === id)
@@ -61,6 +58,7 @@ export function CoffeesContextProvider({ children }: CoffeesContextProviderProps
             const cart = coffees.filter(c => c.id !== id)
             setCoffees([...cart, cartItem])
 
+            
         } else {
             return
         }
@@ -81,14 +79,13 @@ export function CoffeesContextProvider({ children }: CoffeesContextProviderProps
             const cart = coffees.filter(c => c.id !== id)
             setCoffees([...cart, cartItem])
 
+            
         } else {
             return
         }
 
     }
-
-
-
+    
     function handleAddToCart(coffee: CartProps) {
         const cartItem = coffees.find(c => c.id === coffee.id)
 
@@ -111,6 +108,8 @@ export function CoffeesContextProvider({ children }: CoffeesContextProviderProps
         const cart = coffees.filter(c => c.id !== id)
 
         setCoffees(cart)
+        
+
     }
 
     function handleClearCart() {
